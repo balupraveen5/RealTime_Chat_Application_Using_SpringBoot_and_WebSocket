@@ -9,7 +9,7 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-          --bg: #0a9396; /* CHANGED: vibrant teal replacing the old near-black #0d0f14 */
+          --bg: #0a9396;
           --surface: #161922;
           --surface2: #1e2330;
           --border: #2a2f3f;
@@ -24,7 +24,6 @@
         }
 
         body {
-          /* CHANGED: replaced solid var(--bg) with vibrant teal-to-indigo gradient */
           background: linear-gradient(135deg, #0a9396 0%, #005f73 40%, #3a0ca3 100%);
           font-family: 'DM Sans', sans-serif;
           color: var(--text);
@@ -45,18 +44,11 @@
           box-shadow:
             0 0 0 1px rgba(255,255,255,0.04),
             0 40px 80px rgba(0,0,0,0.6);
-            /* CHANGED: removed 3rd line "0 0 60px var(--accent-glow)" glow */
           display: flex;
           flex-direction: column;
           animation: shellIn 0.5s cubic-bezier(0.22,1,0.36,1) both;
         }
 
-<!--        @keyframes shellIn {-->
-<!--          from { opacity: 0; transform: translateY(24px) scale(0.97); }-->
-<!--          to   { opacity: 1; transform: translateY(0) scale(1); }-->
-<!--        }-->
-
-        /* ── Header ── */
         .chat-header {
           padding: 20px 24px 18px;
           background: var(--surface);
@@ -73,7 +65,7 @@
 
         }
         @keyframes pulse {
-          0%,100% { opacity: 1; } /* CHANGED: removed box-shadow from pulse keyframes */
+          0%,100% { opacity: 1; } 
           50%      { opacity: 0.6; }
         }
 
@@ -101,7 +93,6 @@
           letter-spacing: 0.5px;
         }
 
-        /* ── Message Area ── */
         #chat {
           flex: 1;
           height: 340px;
@@ -143,7 +134,7 @@
 
         .msg-bubble {
           padding: 10px 14px;
-          border-radius: 4px; /* CHANGED: was var(--radius) = 18px, now sharp corners */
+          border-radius: 4px; 
           font-size: 14px;
           line-height: 1.55;
           word-break: break-word;
@@ -151,13 +142,11 @@
         .msg-row.other .msg-bubble {
           background: var(--bubble-in);
           border: 1px solid var(--border);
-          /* CHANGED: removed border-bottom-left-radius: 5px override */
           color: var(--text);
         }
         .msg-row.self .msg-bubble {
           background: var(--bubble-out);
           border: 1px solid rgba(79,142,255,0.2);
-          /* CHANGED: removed border-bottom-right-radius: 5px override */
           color: #c9daff;
         }
 
@@ -170,7 +159,6 @@
         }
         .empty-state .icon { font-size: 32px; margin-bottom: 10px; display: block; }
 
-        /* ── Inputs ── */
         .chat-footer {
           padding: 16px 20px 20px;
           border-top: 1px solid var(--border);
@@ -231,12 +219,10 @@
           padding: 11px 20px;
           cursor: pointer;
           transition: background 0.2s, transform 0.1s;
-          /* CHANGED: removed box-shadow glow from send button */
           white-space: nowrap;
         }
         #sendMessage:hover:not(:disabled) {
           background: #6aa0ff;
-          /* CHANGED: removed box-shadow glow on hover */
         }
         #sendMessage:active:not(:disabled) { transform: scale(0.96); }
         #sendMessage:disabled {
@@ -245,10 +231,8 @@
           box-shadow: none;
         }
 
-        /* send icon */
-        #sendMessage::after { content: ' ↑'; }
 
-        /* locked name state */
+        #sendMessage::after { content: ' ↑'; }
         .name-row { position: relative; }
 
         #senderInput.locked {
